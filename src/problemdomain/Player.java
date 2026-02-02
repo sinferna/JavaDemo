@@ -5,8 +5,13 @@ public class Player {
 	private int age;
 
 	public Player(String name, int age) {
-		name = this.name;
-		age = this.age;
+		super();
+		setName(name);
+		setAge(age);
+	}
+
+	public Player() {
+
 	}
 
 	/**
@@ -20,6 +25,9 @@ public class Player {
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
+		if (name == null || !name.matches("[A-Za-z ]+")) {
+			throw new IllegalArgumentException("Name must only contain letters (A-Z)");
+		}
 		this.name = name;
 	}
 
@@ -34,12 +42,15 @@ public class Player {
 	 * @param age the age to set
 	 */
 	public void setAge(int age) {
+		if (age < 13) {
+			throw new IllegalArgumentException();
+		}
 		this.age = age;
 	}
 	
 	@Override
 	public String toString() {
-		return name + age;
+		return name + ", " + age;
 	}
 
 }
