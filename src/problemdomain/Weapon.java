@@ -14,7 +14,7 @@ public class Weapon {
     }
 
     public Weapon(Type type) {
-        this.type = type;
+        setType(type);
     }
 
     public Type getType() {
@@ -22,20 +22,10 @@ public class Weapon {
     }
 
     public void setType(Type type) {
+        if (type == null) {
+            throw new IllegalArgumentException("Weapon type cannot be null.");
+        }
         this.type = type;
     }
-    //    private String type;
-//
-//    public Weapon() {
-//
-//    }
-//
-//    public String getType() {
-//        return type;
-//    }
-//
-//    public void setType(String type) {
-//        this.type = type;
-//    }
 
 }

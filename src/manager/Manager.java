@@ -6,18 +6,20 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import problemdomain.Player;
+import problemdomain.Weapon;
 
 public class Manager {
 	private String name;
 	private int age;
+	private Weapon.Type type;
 	private Scanner input;
 	private ArrayList<Player> players;
 	
 	public Manager() {
-		printName();
+		initializeCharacter();
 	}
 	
-	private void printName() {
+	private void initializeCharacter() {
 		try {
 			players = new ArrayList<Player>();
 			input = new Scanner(System.in);
@@ -77,19 +79,33 @@ public class Manager {
 //				for (Player p : players) {
 //					System.out.println(p);
 //				}
-
-				running = false;
-
 				boolean gettingWeapon = true;
+				Weapon weapon = new Weapon();
 
 				while (gettingWeapon) {
+					System.out.println("Choose your weapon: ");
+					System.out.println("Sword");
+					System.out.println("Staff");
+					System.out.println("Bow");
 
+					String weaponInput = input.nextLine().trim().toUpperCase();
+
+					try {
+						type = Weapon.Type.valueOf(weaponInput);
+						weapon.setType(type);
+						gettingWeapon = false;
+					} catch (IllegalArgumentException e) {
+						System.out.println("Invalid weapon type selected.");
+					}
 				}
+				running = false;
 			}
+
 		}
 		
 		catch (NullPointerException e) {
 			System.out.println("Invalid entry.");
 		}
 	}
+
 }

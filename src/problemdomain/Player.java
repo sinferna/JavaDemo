@@ -3,9 +3,9 @@ package problemdomain;
 public class Player {
 	private String name;
 	private int age;
+	private Weapon weapon;
 
 	public Player(String name, int age) {
-		super();
 		setName(name);
 		setAge(age);
 	}
@@ -47,7 +47,15 @@ public class Player {
 		}
 		this.age = age;
 	}
-	
+
+	public Weapon getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
+
 	@Override
 	public String toString() {
 		return name + ", " + age;
