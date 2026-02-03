@@ -102,11 +102,11 @@ public class Manager {
 				weapon.setType(type);
 
 				if (type == Weapon.Type.SWORD) {
-					System.out.println("You hold the sword and gain +10 attack strength.");
+					System.out.println("\nYou hold the sword and gain +10 attack strength.");
 				} else if (type == Weapon.Type.STAFF) {
-					System.out.println("You hold the staff and gain +10 magic strength.");
+					System.out.println("\nYou hold the staff and gain +10 magic strength.");
 				} else if (type == Weapon.Type.BOW) {
-					System.out.println("You hold the bow and gain +10 ranged strength.");
+					System.out.println("\nYou hold the bow and gain +10 ranged strength.");
 				}
 				gettingWeapon = false;
 			} catch (IllegalArgumentException e) {
