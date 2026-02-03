@@ -55,17 +55,18 @@ public class Manager {
 					// input.hasNextInt() evaluates to true
 					if (input.hasNextInt()) {
 						age = input.nextInt();
+						input.nextLine();
 						try {
 							player.setAge(age);
 							gettingAge = false;
-							System.out.println("\nWelcome to Zyrith!");
+							System.out.println("\nWelcome to Zyrith!\n");
+							initializeGear();
 						} catch (IllegalArgumentException e) {
 							System.out.println("\nPlayer must be at least 13 years old.\n");
 							break;
 						}
 					} else {
 						System.out.println("Invalid input. Please use numbers (1-9).");
-						input.nextLine();
 					}
 				}
 
@@ -79,33 +80,40 @@ public class Manager {
 //				for (Player p : players) {
 //					System.out.println(p);
 //				}
-				boolean gettingWeapon = true;
-				Weapon weapon = new Weapon();
 
-				while (gettingWeapon) {
-					System.out.println("Choose your weapon: ");
-					System.out.println("Sword");
-					System.out.println("Staff");
-					System.out.println("Bow");
-
-					String weaponInput = input.nextLine().trim().toUpperCase();
-
-					try {
-						type = Weapon.Type.valueOf(weaponInput);
-						weapon.setType(type);
-						gettingWeapon = false;
-					} catch (IllegalArgumentException e) {
-						System.out.println("Invalid weapon type selected.");
-					}
-				}
 				running = false;
 			}
-
 		}
-		
 		catch (NullPointerException e) {
 			System.out.println("Invalid entry.");
 		}
 	}
 
+	public void initializeGear() {
+		boolean gettingWeapon = true;
+		Weapon weapon = new Weapon();
+
+		while (gettingWeapon) {
+			System.out.print("Choose your weapon (Sword, Staff or Bow): ");
+
+			try {
+				String weaponInput = input.nextLine().trim().toUpperCase();
+				type = Weapon.Type.valueOf(weaponInput);
+				weapon.setType(type);
+
+				if (type == Weapon.Type.SWORD) {
+					System.out.println("You hold the sword and gain +10 attack strength.");
+				} else if (type == Weapon.Type.STAFF) {
+					System.out.println("You hold the staff and gain +10 magic strength.");
+				} else if (type == Weapon.Type.BOW) {
+					System.out.println("You hold the bow and gain +10 ranged strength.");
+				}
+				gettingWeapon = false;
+			} catch (IllegalArgumentException e) {
+				System.out.println("Invalid weapon type selected.");
+			}
+		}
+	}
+
 }
+

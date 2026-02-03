@@ -5,9 +5,10 @@ public class Player {
 	private int age;
 	private Weapon weapon;
 
-	public Player(String name, int age) {
+	public Player(String name, int age, Weapon weapon) {
 		setName(name);
 		setAge(age);
+		setWeapon(weapon);
 	}
 
 	public Player() {
@@ -26,7 +27,7 @@ public class Player {
 	 */
 	public void setName(String name) {
 		if (name == null || !name.matches("[A-Za-z ]+")) {
-			throw new IllegalArgumentException("Name must only contain letters (A-Z)");
+			throw new IllegalArgumentException();
 		}
 		this.name = name;
 	}
@@ -53,7 +54,9 @@ public class Player {
 	}
 
 	public void setWeapon(Weapon weapon) {
-		this.weapon = weapon;
+		if (weapon == null) {
+			throw new IllegalArgumentException();
+		}
 	}
 
 	@Override

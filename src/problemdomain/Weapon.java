@@ -28,4 +28,8 @@ public class Weapon {
         this.type = type;
     }
 
+    public String toString() {
+        return type.toString();
+    }
+
 }
