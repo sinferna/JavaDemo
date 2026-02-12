@@ -4,6 +4,8 @@ public class Player {
 	private String name;
 	private int age;
 	private Weapon weapon;
+	private int lifePoints;
+	private int attackLevel;
 
 	public Player(String name, int age, Weapon weapon) {
 		setName(name);

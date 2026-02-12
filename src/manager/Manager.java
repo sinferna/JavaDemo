@@ -17,6 +17,7 @@ public class Manager {
 	
 	public Manager() {
 		initializeCharacter();
+		monsterEncounter();
 	}
 	
 	private void initializeCharacter() {
@@ -94,7 +95,7 @@ public class Manager {
 		Weapon weapon = new Weapon();
 
 		while (gettingWeapon) {
-			System.out.print("Choose your weapon (Sword, Staff or Bow): ");
+			System.out.print("Choose a weapon (Sword, Staff or Bow): ");
 
 			try {
 				String weaponInput = input.nextLine().trim().toUpperCase();
@@ -112,6 +113,19 @@ public class Manager {
 			} catch (IllegalArgumentException e) {
 				System.out.println("Invalid weapon type selected.");
 			}
+		}
+	}
+
+	public void monsterEncounter() {
+		System.out.println("An Evil Imp appears...");
+		System.out.println("1 - Attack it! I can take it on.");
+		System.out.println("2 - Run away. I don't need this right now.");
+		System.out.println("Choose an option: ");
+
+		int encounterChoice = input.nextInt();
+
+		if (encounterChoice == 1) {
+			System.out.println("Ok");
 		}
 	}
 
