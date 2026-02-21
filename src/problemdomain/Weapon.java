@@ -5,7 +5,7 @@ public class Weapon {
         SWORD,
         STAFF,
         BOW
-    };
+    }
 
     private Type type;
 
