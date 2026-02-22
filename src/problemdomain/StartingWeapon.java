@@ -3,9 +3,9 @@ package problemdomain;
 public class StartingWeapon {
 
     public enum Type {
-        SWORD,
-        STAFF,
-        BOW
+        Sword,
+        Staff,
+        Bow
     }
     private int meleeStrength;
     private int magicStrength;
@@ -35,13 +35,13 @@ public class StartingWeapon {
         this.rangedStrength = 0;
 
         switch (type) {
-            case SWORD:
+            case Sword:
                 meleeStrength = 10;
                 break;
-            case STAFF:
+            case Staff:
                 this.magicStrength = 10;
                 break;
-            case BOW:
+            case Bow:
                 this.rangedStrength = 10;
                 break;
         }

@@ -17,7 +17,7 @@ public class AttackRoll {
         int enemyDefence = 0;
 
         switch (weapon.getType()) {
-            case SWORD:
+            case Sword:
                 playerStrength = weapon.getMeleeStrength();
                 playerDefence = player.getMeleeDefence();
 
@@ -25,7 +25,7 @@ public class AttackRoll {
                 enemyDefence = enemy.getMeleeDefence();
                 break;
 
-            case STAFF:
+            case Staff:
                 playerStrength = weapon.getMagicStrength();
                 playerDefence = player.getMagicDefence();
 
@@ -33,7 +33,7 @@ public class AttackRoll {
                 enemyDefence = enemy.getMagicDefence();
                 break;
 
-            case BOW:
+            case Bow:
                 playerStrength = weapon.getRangedStrength();
                 playerDefence = player.getRangedDefence();
 
@@ -53,17 +53,17 @@ public class AttackRoll {
 
         if (enemyDamage < 0) enemyDamage = 0;
 
-        // Apply damage
+        // apply damage
         enemy.takeDamage(playerDamage);
         player.takeDamage(enemyDamage);
 
-        // Print combat result
+        // print combat result
         System.out.println(
                 "You do " + playerDamage + " damage and receive "
                         + enemyDamage + " damage! You have "
                         + player.getLifePoints() + " lifepoints left. The "
                         + enemy.getName() + " has "
-                        + enemy.getLifePoints() + " left."
+                        + enemy.getLifePoints() + " lifepoints left."
         );
     }
 
