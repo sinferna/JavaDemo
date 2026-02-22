@@ -3,18 +3,41 @@ package problemdomain;
 public class Player {
 	private String name;
 	private int age;
-	private Weapon weapon;
-	private int lifePoints;
-	private int attackLevel;
+	private StartingWeapon startingWeapon;
+	private int level = 15;
+	private int lifePoints = 100;
+	private int meleeStrength = 0;
+	private int magicStrength = 0;
+	private int rangedStrength = 0;
+	private int meleeDefence = 10;
+	private int magicDefence = 10;
+	private int rangedDefence = 10;
 
-	public Player(String name, int age, Weapon weapon) {
+	public Player(String name, int age, StartingWeapon startingWeapon) {
 		setName(name);
 		setAge(age);
-		setWeapon(weapon);
+		setWeapon(startingWeapon);
 	}
 
 	public Player() {
 
+	}
+
+	public int getLevel() { return level; }
+	public int getLifePoints() { return lifePoints; }
+	public int getMeleeStrength() { return meleeStrength; }
+	public int getMagicStrength() { return magicStrength; }
+	public int getRangedStrength() { return rangedStrength; }
+	public int getMeleeDefence()  { return meleeDefence; }
+	public int getMagicDefence()  { return magicDefence; }
+	public int getRangedDefence() { return rangedDefence; }
+
+	public void takeDamage(int damage) {
+		lifePoints -= damage;
+
+		if (lifePoints < 0) {
+			lifePoints = 0;
+		}
 	}
 
 	/**
@@ -51,19 +74,27 @@ public class Player {
 		this.age = age;
 	}
 
-	public Weapon getWeapon() {
-		return weapon;
+	public StartingWeapon getWeapon() {
+		return startingWeapon;
 	}
 
-	public void setWeapon(Weapon weapon) {
-		if (weapon == null) {
+	public void setWeapon(StartingWeapon startingWeapon) {
+		if (startingWeapon == null) {
 			throw new IllegalArgumentException();
 		}
+		this.startingWeapon = startingWeapon;
 	}
 
 	@Override
 	public String toString() {
-		return name + ", " + age;
+		return "Character Level: " + level +
+				"\nLifepoints: " + lifePoints +
+				"\nMelee Strength: " + meleeStrength +
+				"\nMagic Strength: " + magicStrength +
+				"\nRanged Strength: " + rangedStrength +
+				"\nMelee Defence: " + meleeDefence +
+				"\nMagic Defence: " + magicDefence +
+				"\nRanged Defence: " + rangedDefence;
 	}
 
 }
