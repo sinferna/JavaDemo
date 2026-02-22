@@ -48,10 +48,10 @@ public class StartGame {
 					age = Integer.parseInt(userInput);
 					player.setAge(age);
 					gettingAge = false;
-					System.out.println("\nWELCOME TO ZYRIFT! ( ◠‿◠ )");
+					System.out.println("\nWELCOME TO ZYRITH! ( ◠‿◠ )");
 					initializeGear();
 				} catch (NumberFormatException e) {
-					System.out.println(">> Invalid input. Please use numbers (1-9).");
+					System.out.println(">> Invalid input. Please use numbers (0-9).");
 				} catch (IllegalArgumentException e) {
 					System.out.println("Player must be at least 13 years old.");
 				}
@@ -86,7 +86,7 @@ public class StartGame {
 				startingWeapon.setType(selectedType);
 				player.setWeapon(startingWeapon);
 
-				System.out.println("\nYou equip the " + selectedType + "!");
+				System.out.println("\nYou equip the " + selectedType.name + "!");
 				System.out.println(player);
 				gettingWeapon = false;
 				firstMonsterEncounter();
@@ -126,11 +126,11 @@ public class StartGame {
 					}
 					System.out.println("\nYou are victorious! The Evil Imp turns into dust." +
 							"\nIt drops 100 coins. You pick them up." +
-							"\n\nYou make your way to Kossor, the capital of Zyrift...");
+							"\n\nYou make your way to Kossor, the capital of Zyrith...");
 					firstMonsterEncountered = false;
 				} else if (encounterChoice == 2) {
 					System.out.println("You manage to get away... for now...\n" +
-							"You make your way to Kossor, the capital of Zyrift.");
+							"You make your way to Kossor, the capital of Zyrith.");
 					firstMonsterEncountered = false;
 				} else {
 					System.out.println(">> Invalid input. Please choose 1 or 2.");

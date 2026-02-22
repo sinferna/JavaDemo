@@ -17,7 +17,7 @@ public class AttackRoll {
         int enemyDefence = 0;
 
         switch (weapon.getType()) {
-            case Sword:
+            case SWORD:
                 playerStrength = weapon.getMeleeStrength();
                 playerDefence = player.getMeleeDefence();
 
@@ -25,7 +25,7 @@ public class AttackRoll {
                 enemyDefence = enemy.getMeleeDefence();
                 break;
 
-            case Staff:
+            case STAFF:
                 playerStrength = weapon.getMagicStrength();
                 playerDefence = player.getMagicDefence();
 
@@ -33,7 +33,7 @@ public class AttackRoll {
                 enemyDefence = enemy.getMagicDefence();
                 break;
 
-            case Bow:
+            case BOW:
                 playerStrength = weapon.getRangedStrength();
                 playerDefence = player.getRangedDefence();
 

@@ -25,9 +25,9 @@ public class Player {
 
 	public int getLevel() { return level; }
 	public int getLifePoints() { return lifePoints; }
-	public int getMeleeStrength() { return meleeStrength; }
-	public int getMagicStrength() { return magicStrength; }
-	public int getRangedStrength() { return rangedStrength; }
+	public int getMeleeStrength() { return startingWeapon.getMeleeStrength(); }
+	public int getMagicStrength() { return startingWeapon.getMagicStrength(); }
+	public int getRangedStrength() { return startingWeapon.getRangedStrength(); }
 	public int getMeleeDefence()  { return meleeDefence; }
 	public int getMagicDefence()  { return magicDefence; }
 	public int getRangedDefence() { return rangedDefence; }
@@ -87,14 +87,14 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return "Character Level: " + level +
-				"\nLifepoints: " + lifePoints +
-				"\nMelee Strength: " + meleeStrength +
-				"\nMagic Strength: " + magicStrength +
-				"\nRanged Strength: " + rangedStrength +
-				"\nMelee Defence: " + meleeDefence +
-				"\nMagic Defence: " + magicDefence +
-				"\nRanged Defence: " + rangedDefence;
+		return "Character Level: " + getLevel() +
+				"\nLifepoints: " + getLifePoints() +
+				"\nMelee Strength: " + getMeleeStrength() +
+				"\nMagic Strength: " + getMagicStrength() +
+				"\nRanged Strength: " + getRangedStrength() +
+				"\nMelee Defence: " + getMeleeDefence() +
+				"\nMagic Defence: " + getMagicDefence() +
+				"\nRanged Defence: " + getRangedDefence();
 	}
 
 }
