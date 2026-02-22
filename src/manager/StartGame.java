@@ -130,7 +130,7 @@ public class StartGame {
 					firstMonsterEncountered = false;
 				} else if (encounterChoice == 2) {
 					System.out.println("You manage to get away... for now...\n" +
-							"You make your way to Kossor, the capital of Zyrith.");
+							"\nYou make your way to Kossor, the capital of Zyrith.");
 					firstMonsterEncountered = false;
 				} else {
 					System.out.println(">> Invalid input. Please choose 1 or 2.");
